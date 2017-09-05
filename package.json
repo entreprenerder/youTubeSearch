@@ -1,0 +1,54 @@
+{
+  "name": "react-environment",
+  "version": "1.0.0",
+  "description": "Basic React.js environment",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js --ignore public/",
+    "dev": "webpack -wd",
+    "lint": "eslint src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entreprenerder/reactEnv"
+  },
+  "author": "Jason Clements",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "~1.11.0",
+    "json-loader": "^0.5.4",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.20",
+    "radium": "^0.18.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "youtube-api-search": "0.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015-loose": "^8.0.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-runtime": "^6.20.0",
+    "eslint": "^3.13.1",
+    "eslint-plugin-react": "^6.9.0",
+    "file-loader": "^0.9.0",
+    "nodemon": "^1.11.0",
+    "react-icons": "^2.2.3",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-core": "^0.6.9"
+  }
+}
