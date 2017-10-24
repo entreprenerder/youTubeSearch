@@ -47,7 +47,7 @@
   \**********************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
@@ -69,7 +69,7 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRouterDom.BrowserRouter,
 	  null,
-	  _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _App2.default })
+	  _react2.default.createElement(_App2.default, null)
 	), document.getElementById('root'));
 	
 	// Components
@@ -26560,7 +26560,7 @@
   \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -26573,6 +26573,10 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 309);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 178);
 	
 	var _radium = __webpack_require__(/*! radium */ 225);
 	
@@ -26590,19 +26594,19 @@
 	
 	var _youtubeApiSearch2 = _interopRequireDefault(_youtubeApiSearch);
 	
-	var _lodash = __webpack_require__(/*! lodash */ 307);
+	var _lodash = __webpack_require__(/*! lodash */ 303);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _SearchBar = __webpack_require__(/*! ./SearchBar.js */ 303);
+	var _SearchBar = __webpack_require__(/*! ./SearchBar.js */ 305);
 	
 	var _SearchBar2 = _interopRequireDefault(_SearchBar);
 	
-	var _VideoList = __webpack_require__(/*! ./VideoList.js */ 304);
+	var _VideoList = __webpack_require__(/*! ./VideoList.js */ 306);
 	
 	var _VideoList2 = _interopRequireDefault(_VideoList);
 	
-	var _VideoDetail = __webpack_require__(/*! ./VideoDetail.js */ 306);
+	var _VideoDetail = __webpack_require__(/*! ./VideoDetail.js */ 308);
 	
 	var _VideoDetail2 = _interopRequireDefault(_VideoDetail);
 	
@@ -26634,7 +26638,7 @@
 	  }
 	
 	  _createClass(App, [{
-	    key: 'videoSearch',
+	    key: "videoSearch",
 	    value: function videoSearch(term) {
 	      var _this2 = this;
 	
@@ -26646,7 +26650,7 @@
 	      });
 	    }
 	  }, {
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      var _this3 = this;
 	
@@ -26655,23 +26659,23 @@
 	      }, 300);
 	
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
+	        "div",
+	        { className: "container" },
 	        _react2.default.createElement(
-	          'div',
-	          { style: _App2.default.searchRow, className: 'row' },
+	          "div",
+	          { style: _App2.default.searchRow, className: "row" },
 	          _react2.default.createElement(_SearchBar2.default, { onSearchTermChange: videoSearch })
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
+	          "div",
+	          { className: "row" },
 	          _react2.default.createElement(_VideoDetail2.default, { video: this.state.selectedVideo }),
 	          _react2.default.createElement(_VideoList2.default, { onVideoSelect: function onVideoSelect(selectedVideo) {
 	              return _this3.setState({ selectedVideo: selectedVideo });
 	            }, videos: this.state.videos })
 	        ),
 	        _rules2.default.map(function (rules, index) {
-	          return _react2.default.createElement(_radium.Style, { key: 'style-rule-' + index, rules: rules });
+	          return _react2.default.createElement(_radium.Style, { key: "style-rule-" + index, rules: rules });
 	        })
 	      );
 	    }
@@ -31976,224 +31980,6 @@
 
 /***/ },
 /* 303 */
-/*!*************************************!*\
-  !*** ./src/components/SearchBar.js ***!
-  \*************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var SearchBar = function (_Component) {
-	  _inherits(SearchBar, _Component);
-	
-	  function SearchBar(props) {
-	    _classCallCheck(this, SearchBar);
-	
-	    var _this = _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).call(this, props));
-	
-	    _this.state = { term: '' };
-	    return _this;
-	  }
-	
-	  _createClass(SearchBar, [{
-	    key: 'onInputChange',
-	    value: function onInputChange(term) {
-	      this.setState({ term: term });
-	      this.props.onSearchTermChange(term);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement('input', { className: 'form-control', value: this.state.term, onChange: function onChange(event) {
-	            return _this2.onInputChange(event.target.value);
-	          } })
-	      );
-	    }
-	  }]);
-	
-	  return SearchBar;
-	}(_react.Component);
-	
-	exports.default = SearchBar;
-
-/***/ },
-/* 304 */
-/*!*************************************!*\
-  !*** ./src/components/VideoList.js ***!
-  \*************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _VideoListItem = __webpack_require__(/*! ./VideoListItem.js */ 305);
-	
-	var _VideoListItem2 = _interopRequireDefault(_VideoListItem);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var VideoList = function VideoList(props) {
-	
-	  var videoItems = props.videos.map(function (video) {
-	    return _react2.default.createElement(_VideoListItem2.default, { onVideoSelect: props.onVideoSelect, key: video.etag, video: video });
-	  });
-	
-	  return _react2.default.createElement(
-	    'ul',
-	    { className: 'col-md-4 list-group' },
-	    videoItems
-	  );
-	};
-	
-	exports.default = VideoList;
-
-/***/ },
-/* 305 */
-/*!*****************************************!*\
-  !*** ./src/components/VideoListItem.js ***!
-  \*****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var VideoListItem = function VideoListItem(_ref) {
-	  var video = _ref.video,
-	      onVideoSelect = _ref.onVideoSelect;
-	
-	
-	  var imageUrl = video.snippet.thumbnails.default.url;
-	
-	  return _react2.default.createElement(
-	    "li",
-	    { onClick: function onClick() {
-	        return onVideoSelect(video);
-	      }, className: "list-group-item" },
-	    _react2.default.createElement(
-	      "div",
-	      { className: "video-list media" },
-	      _react2.default.createElement(
-	        "div",
-	        { className: "media-left" },
-	        _react2.default.createElement("img", { className: "media-object", src: imageUrl })
-	      ),
-	      _react2.default.createElement(
-	        "div",
-	        { className: "media-body" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "media-heading" },
-	          video.snippet.title
-	        )
-	      )
-	    )
-	  );
-	};
-	
-	exports.default = VideoListItem;
-
-/***/ },
-/* 306 */
-/*!***************************************!*\
-  !*** ./src/components/VideoDetail.js ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var VideoDetail = function VideoDetail(_ref) {
-	  var video = _ref.video;
-	
-	
-	  if (!video) {
-	    return _react2.default.createElement(
-	      "div",
-	      null,
-	      "Loading..."
-	    );
-	  }
-	
-	  var videoId = video.id.videoId;
-	  var url = "https://www.youtube.com/embed/" + videoId;
-	
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "video-detail col-md-8" },
-	    _react2.default.createElement(
-	      "div",
-	      { className: "embed-responsive embed-responsive-16by9" },
-	      _react2.default.createElement("iframe", { className: "embed-responsive-item", src: url })
-	    ),
-	    _react2.default.createElement(
-	      "div",
-	      { className: "details" },
-	      _react2.default.createElement(
-	        "div",
-	        null,
-	        video.snippet.title
-	      ),
-	      _react2.default.createElement(
-	        "div",
-	        null,
-	        video.snippet.description
-	      )
-	    )
-	  );
-	};
-	
-	exports.default = VideoDetail;
-
-/***/ },
-/* 307 */
 /*!****************************!*\
   !*** ./~/lodash/lodash.js ***!
   \****************************/
@@ -49284,10 +49070,10 @@
 	  }
 	}.call(this));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(/*! ./../webpack/buildin/module.js */ 308)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(/*! ./../webpack/buildin/module.js */ 304)(module)))
 
 /***/ },
-/* 308 */
+/* 304 */
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
@@ -49304,6 +49090,284 @@
 		return module;
 	}
 
+
+/***/ },
+/* 305 */
+/*!*************************************!*\
+  !*** ./src/components/SearchBar.js ***!
+  \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SearchBar = function (_Component) {
+	  _inherits(SearchBar, _Component);
+	
+	  function SearchBar(props) {
+	    _classCallCheck(this, SearchBar);
+	
+	    var _this = _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).call(this, props));
+	
+	    _this.state = { term: '' };
+	    return _this;
+	  }
+	
+	  _createClass(SearchBar, [{
+	    key: 'onInputChange',
+	    value: function onInputChange(term) {
+	      this.setState({ term: term });
+	      this.props.onSearchTermChange(term);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement('input', { className: 'form-control', value: this.state.term, onChange: function onChange(event) {
+	            return _this2.onInputChange(event.target.value);
+	          } })
+	      );
+	    }
+	  }]);
+	
+	  return SearchBar;
+	}(_react.Component);
+	
+	exports.default = SearchBar;
+
+/***/ },
+/* 306 */
+/*!*************************************!*\
+  !*** ./src/components/VideoList.js ***!
+  \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _VideoListItem = __webpack_require__(/*! ./VideoListItem.js */ 307);
+	
+	var _VideoListItem2 = _interopRequireDefault(_VideoListItem);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var VideoList = function VideoList(props) {
+	
+	  var videoItems = props.videos.map(function (video) {
+	    return _react2.default.createElement(_VideoListItem2.default, { onVideoSelect: props.onVideoSelect, key: video.etag, video: video });
+	  });
+	
+	  return _react2.default.createElement(
+	    'ul',
+	    { className: 'col-md-4 list-group' },
+	    videoItems
+	  );
+	};
+	
+	exports.default = VideoList;
+
+/***/ },
+/* 307 */
+/*!*****************************************!*\
+  !*** ./src/components/VideoListItem.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var VideoListItem = function VideoListItem(_ref) {
+	  var video = _ref.video,
+	      onVideoSelect = _ref.onVideoSelect;
+	
+	
+	  var imageUrl = video.snippet.thumbnails.default.url;
+	
+	  return _react2.default.createElement(
+	    "li",
+	    { onClick: function onClick() {
+	        return onVideoSelect(video);
+	      }, className: "list-group-item" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "video-list media" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "media-left" },
+	        _react2.default.createElement("img", { className: "media-object", src: imageUrl })
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "media-body" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "media-heading" },
+	          video.snippet.title
+	        )
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = VideoListItem;
+
+/***/ },
+/* 308 */
+/*!***************************************!*\
+  !*** ./src/components/VideoDetail.js ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var VideoDetail = function VideoDetail(_ref) {
+	  var video = _ref.video;
+	
+	
+	  if (!video) {
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      "Loading..."
+	    );
+	  }
+	
+	  var videoId = video.id.videoId;
+	  var url = "https://www.youtube.com/embed/" + videoId;
+	
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "video-detail col-md-8" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "embed-responsive embed-responsive-16by9" },
+	      _react2.default.createElement("iframe", { className: "embed-responsive-item", src: url })
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "details" },
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        video.snippet.title
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        null,
+	        video.snippet.description
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = VideoDetail;
+
+/***/ },
+/* 309 */
+/*!*********************************!*\
+  !*** ./~/react-router/index.js ***!
+  \*********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.withRouter = exports.matchPath = exports.Switch = exports.StaticRouter = exports.Router = exports.Route = exports.Redirect = exports.Prompt = exports.MemoryRouter = undefined;
+	
+	var _MemoryRouter2 = __webpack_require__(/*! ./MemoryRouter */ 203);
+	
+	var _MemoryRouter3 = _interopRequireDefault(_MemoryRouter2);
+	
+	var _Prompt2 = __webpack_require__(/*! ./Prompt */ 212);
+	
+	var _Prompt3 = _interopRequireDefault(_Prompt2);
+	
+	var _Redirect2 = __webpack_require__(/*! ./Redirect */ 214);
+	
+	var _Redirect3 = _interopRequireDefault(_Redirect2);
+	
+	var _Route2 = __webpack_require__(/*! ./Route */ 207);
+	
+	var _Route3 = _interopRequireDefault(_Route2);
+	
+	var _Router2 = __webpack_require__(/*! ./Router */ 198);
+	
+	var _Router3 = _interopRequireDefault(_Router2);
+	
+	var _StaticRouter2 = __webpack_require__(/*! ./StaticRouter */ 217);
+	
+	var _StaticRouter3 = _interopRequireDefault(_StaticRouter2);
+	
+	var _Switch2 = __webpack_require__(/*! ./Switch */ 219);
+	
+	var _Switch3 = _interopRequireDefault(_Switch2);
+	
+	var _matchPath2 = __webpack_require__(/*! ./matchPath */ 208);
+	
+	var _matchPath3 = _interopRequireDefault(_matchPath2);
+	
+	var _withRouter2 = __webpack_require__(/*! ./withRouter */ 222);
+	
+	var _withRouter3 = _interopRequireDefault(_withRouter2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.MemoryRouter = _MemoryRouter3.default;
+	exports.Prompt = _Prompt3.default;
+	exports.Redirect = _Redirect3.default;
+	exports.Route = _Route3.default;
+	exports.Router = _Router3.default;
+	exports.StaticRouter = _StaticRouter3.default;
+	exports.Switch = _Switch3.default;
+	exports.matchPath = _matchPath3.default;
+	exports.withRouter = _withRouter3.default;
 
 /***/ }
 /******/ ]);

@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import {Redirect} from "react-router";
+import {Route, Switch} from "react-router-dom";
+
 import radium, {Style} from 'radium';
 import styles from '../../src/styles/App.js';
 import siteRules from '../../src/styles/rules.js';
 import YTSearch from 'youtube-api-search';
 import _ from 'lodash';
+
 
 import SearchBar from './SearchBar.js';
 import VideoList from './VideoList.js';
